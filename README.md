@@ -6,7 +6,7 @@ Limitations:
 - Can only read from one line in a file
 
 # Usage
-The usage of this program is: <file>
+The usage of this program is: `<file>`
 
 For example, to run a file called hello.br:
 `brainfuck.exe hello.br`
