@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 
 // Size of the brainfuck array
 #define arraySize 30000
@@ -26,9 +27,11 @@ int main(int argc, char **argv) {
     int instructionPointer = 0;
     int loopDepth = 0;
 
-    // TODO: Make this accept multi line files
-    fgets(instructions, arraySize, file); 
-    fclose(file);   
+    char line[arraySize] = { 0 };
+    while(fgets(line, arraySize, file) != NULL) {
+        strcat(instructions, line);
+    }
+    fclose(file);
 
     while(instructions[instructionPointer]) {
         switch(instructions[instructionPointer]) {
