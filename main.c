@@ -67,6 +67,10 @@ int main(int argc, char **argv) {
                         } else if (instruction == '[') {
                             loopDepth++;
                         }
+                        if (instructionPointer > arraySize-1) {
+                            printf("Syntax error: unclosed starting bracket");
+                            return 1;
+                        }
                         instructionPointer++;
                     }
                 }
@@ -82,6 +86,10 @@ int main(int argc, char **argv) {
                         }
                         if (instruction == '[' && loopDepth == 0) {
                             break;
+                        }
+                        if (instructionPointer < 0) {
+                            printf("Syntax error: unclosed ending bracket");
+                            return 1;
                         }
                         instructionPointer--;
                     }
